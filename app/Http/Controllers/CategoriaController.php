@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Categorias;
+
 use Illuminate\Support\Facades\DB;
 
 class CategoriaController extends Controller
@@ -63,14 +65,38 @@ class CategoriaController extends Controller
             'imagem'=>'required'         
 
         ]);
+     
+
+
+        file_put_contents( $_FILES['imagem_slide']['name'], $_FILES['imagem_slide']);
+        
+        
 
         $categoria = new Categorias([
             'nome' => $request->get('nome'),
             'descricao' => $request->get('descricao'),
             'imagem' => $request->get('imagem'),
-            'imagem_slide' => $request->get('imagem_slide'),
+            'imagem_slide' => $_FILES['imagem_slide']['name'],
             'apareceslide' => $request->get('apareceslide')
         ]);
+  
+//
+  //      $imageName = url() . $request->file('imagem_slide')->getClientOriginalName();
+        
+      
+      //  file_put_contents( $imageName, $request->file('imagem_slide'));
+//
+   //   FileAs('', $file, $filenewname);
+      Storage::disk('local')->putFileAs('CategoriaImages', $request->file('imagem_slide'),'foto.jpg');
+      //Storage::disk('local')->put('CategoriaImages',  $request->file('imagem_slide'));
+
+     //   $imageName = asset($imageName);               
+
+
+        
+
+
+    
 
         $categoria->apareceslide = $request->input('apareceslide') ? true : false;
 

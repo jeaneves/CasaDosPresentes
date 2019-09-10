@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-header">Cadastro de Categoria</div>
                 <div class="card-body card-block">
-                    <form action="{{ route('categoria.store') }}" method="POST"  >
+                    <form action="{{ route('categoria.store') }}" method="POST" enctype="multipart/form-data"  >
                                                                    
                         @csrf
                         <div class="form-group">
@@ -36,9 +36,20 @@
                         
                         <div class="form-group">
                             <div class="input-group">
-                                <div class="input-group-addon"><i class="fa fa-camera-retro"></i></div>
-                                <input type="text" id="imagemslide" name="imagem_slide" placeholder="Imagem do Slide" class="form-control">
-                                <button><i class="fa fa-cloud-upload"></i></button>
+                            <div class="form-group text-center">
+                           <label for="fu_imagem_principal">      
+                           <span> <a class="btn btn-secondary" >
+                           <i class="fa fa-picture-o"></i></a>                                           
+                           </span>
+                           
+                           <input type="file" id="imagem_slide" name="imagem_slide">SADASDAD
+                           
+                           </label>
+                        </div>
+                                <!-- <div class="input-group-addon"><i class="fa fa-camera-retro" ></i></div> -->
+                              <!--  <input type="file" id="imagem_slide" name="imagem_slide" placeholder="Imagem do Slide" class="form-control"> -->
+                                                       
+                                <!-- <i class="fa fa-cloud-upload"></i> -->
                             </div>
                         </div>
                         
@@ -67,5 +78,14 @@
                 </div>
             </div>
         </div>
-     </div>        
+     </div>     
+     <script>
+    
+    $(document).ready(function(){
+        $('input[type="file"]').change(function(e){
+            var fileName = e.target.files[0].name;
+            alert('The file "' + fileName +  '" has been selected.');
+        });
+    });
+     </script>   
 @endsection

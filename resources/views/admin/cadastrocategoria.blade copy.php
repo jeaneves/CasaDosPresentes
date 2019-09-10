@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-header">Cadastro de Categoria</div>
                 <div class="card-body card-block">
-                    <form action="" method="post" class="" action="{{ route('categoria.store') }}">
+                    <form action="" method="post" class="" action="{{ route('categoria.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <div class="input-group">
@@ -36,8 +36,8 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-camera-retro"></i></div>
-                                <input type="text" id="imagemslide" name="imagem_slide" placeholder="Imagem do Slide" class="form-control">
-                                <button><i class="fa fa-cloud-upload"></i></button>
+                                <input type="file" id="imagem_slide" name="imagem_slide" placeholder="Imagem do Slide" class="form-control">
+                               <i class="fa fa-cloud-upload"></i>
                             </div>
                         </div>
                         

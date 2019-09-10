@@ -36,6 +36,8 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 
 </head>
 
