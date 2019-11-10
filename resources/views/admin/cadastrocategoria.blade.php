@@ -42,7 +42,7 @@
                            <i class="fa fa-picture-o"></i></a>                                           
                            </span>
                            
-                           <input type="file" id="imagem_slide" name="imagem_slide">SADASDAD
+                           <input type="file" id="imagem_slide" name="imagem_slide">
                            
                            </label>
                         </div>

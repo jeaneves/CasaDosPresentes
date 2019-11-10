@@ -64,9 +64,9 @@
                     </li>
                     <h3 class="menu-title">Manutenção</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-product-hunt"></i>Produtos</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-product-hunt"></i>Geral</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-archive"></i><a href="{{url('admin/categoria')}}">Categorias</a></li>
+                            <li><i class="fa fa-archive"></i><a href="{{url('admin/categoria')}}">Categorias de listas</a></li>
                             <li><i class="fa fa-pencil-square-o"></i><a href="{{url('admin/produtos')}}">Produtos</a></li>
                            
                         </ul>
