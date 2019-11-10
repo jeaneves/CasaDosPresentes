@@ -43,66 +43,140 @@
 	    <header>
 		    <!-- Header desktop -->
 		    <div class="container-menu-desktop">
+			
 			    <div class="wrap-menu-desktop">
 				    <nav class="limiter-menu-desktop container">
 					    <!-- Logo desktop -->		
 					    <a href="{{ url('/') }}" class="logo">
 						    <img src="images/icons/logo-01.png" alt="IMG-LOGO">
 					    </a>	
-
                         <!-- Icon header -->
                         <div class="wrap-icon-header flex-w flex-r-m">
                             <!-- Menu desktop -->
-                        <div class="menu-desktop">
-                            <ul class="main-menu">
-                                <li class="active-menu"><a href="{{ url('/') }}">Home</a></li>
-                                <li>
-									@if (Route::has('login'))
-										<div class="top-right links">
-											@auth
-												<a href="{{ url('/listas') }}">listas</a>
-											@else
-												<a href=" route('login') }}">Login</a>
-												@if (Route::has('register'))
-													<a href="{{ route('register') }}">Register</a>
-												@endif
-											@endauth
-									@endif
-								</li>
-                            </ul>
-					    </div>
+                        	<div class="menu-desktop">
+                            	<ul class="main-menu">
+                                	<li>
+										@if (Route::has('login'))
+											<div class="top-right links">
+												@auth
+													<a href="{{ url('/listas') }}">listas</a>
+												@else
+													<a href="{{ route('login') }}">Login</a>
+													@if (Route::has('register'))
+														<a href="{{ route('register') }}">Register</a>
+													@endif
+												@endauth
+										@endif
+									</li>
+                            	</ul>
+					    	</div>
                         </div>
-
-                        
 				    </nav>
 			    </div>
 		    </div>
+			
 	    </header>
-        
-        <div class="center">
-            <section class="bg0 p-t-23 p-b-140">
-                <div class="content">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/T2yyOrOxiLA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </section>
-        </div>
+		<section class="section-slide">
+			<div class="item-slick1" style="background-image: url(images/slide-02.jpg);">
+				<div class="container h-full">
+					<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+						<div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
+							<span class="ltext-101 cl2 respon2">
+								Casa dos Presentes
+							</span>
+						</div>
+						<div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="800">
+							<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
+								Chá de cozinha
+							</h2>
+						</div>
+						<div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
+							<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								ACESSAR
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
+		<section class="bg0 p-t-23 p-b-140">
+			<div class="container">
+				<div class="p-b-10">
+					<h3 class="ltext-103 cl5">
+						Produtos
+					</h3>
+				</div>
+				<div class="flex-w flex-sb-m p-b-52">
+					<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+							Todos os produtos
+						</button>
+						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+							Cozinha
+						</button>
+						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
+							Eletro
+						</button>
+						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
+							Decoração
+						</button>
+						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
+							Mesa e Acessórios
+						</button>
+						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+							Bar
+						</button>
+						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+							Lavanderia
+						</button>
+					</div>
+				</div>
+				<div class="row isotope-grid">
+		        	<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women float-center">
+						<!-- Block2 -->
+						<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="images/product-02.jpg" alt="IMG-PRODUCT">
+							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+								Quick View
+							</a>
+						</div>
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									Herschel supply
+								</a>
+								<span class="stext-105 cl3">
+										$35.31
+								</span>
+							</div>
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
         <!-- Footer -->
 	    <footer class="bg3 p-t-75 p-b-32">
 		    <div class="container">
 			    <div class="row">
-				    <div class="col-sm-6 col-lg-3 p-b-50">
+				    <!-- <div class="col-sm-6 col-lg-3 p-b-50">
 					    <h4 class="stext-301 cl0 p-b-30">
 						    Ajuda
 					    </h4>
     					
                         <ul>
 	    					<li class="p-b-10"><a href="#" class="stext-107 cl7 hov-cl1 trans-04">Acompanhar lista</a></li>
-                            <li class="p-b-10"><a href="#" class="stext-107 cl7 hov-cl1 trans-04"><!-- Returns  --></a></li>
-    						<li class="p-b-10"><a href="#" class="stext-107 cl7 hov-cl1 trans-04"><!-- Shipping --></a></li>
+                            <li class="p-b-10"><a href="#" class="stext-107 cl7 hov-cl1 trans-04"><1!-- Returns  --/></a></li>
+    						<li class="p-b-10"><a href="#" class="stext-107 cl7 hov-cl1 trans-04"><1!-- Shipping --/></a></li>
                             <li class="p-b-10"><a href="#" class="stext-107 cl7 hov-cl1 trans-04">FAQs</a></li>
                         </ul>
-				    </div>
+				    </div> -->
     				<div class="col-sm-6 col-lg-3 p-b-50">
 					    <h4 class="stext-301 cl0 p-b-30">Entrar em contato</h4>
                         <p class="stext-107 cl7 size-201">
@@ -111,9 +185,9 @@
 					    </p>
 					    
                         <div class="p-t-27">
-						    <a href="https://www.facebook.com/casadospresentesshop/" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"><i class="fa fa-facebook"></i></a>
-						    <a href="https://www.instagram.com/casadospresentesshop" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"><i class="fa fa-instagram"></i></a>
-                            <a href="https://www.youtube.com/channel/UCWeAzCrQ6BYasVDJjvJqGEQ" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"><i class="fa fa-youtube"></i></a>
+						    <a href="https://www.facebook.com/casadospresentesshop/" target="_blank " class="fs-18 cl7 hov-cl1 trans-04 m-r-16"><i class="fa fa-facebook"></i></a>
+						    <a href="https://www.instagram.com/casadospresentesshop" target="_blank" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"><i class="fa fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/channel/UCWeAzCrQ6BYasVDJjvJqGEQ" target="_blank" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"><i class="fa fa-youtube"></i></a>
 					    </div>
 				    </div>
     

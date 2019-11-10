@@ -355,7 +355,7 @@
 
 	@yield('main')
 	
-
+	
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
