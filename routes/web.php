@@ -12,13 +12,18 @@
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome','WelcomeController@index');
+// });
 
 
+Route::redirect('/','welcome');
+
+Route::resource('welcome','WelcomeController');
 
 Auth::routes();
+
+
 
 Route::resource('listas','ListaController');
 

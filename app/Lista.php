@@ -9,6 +9,6 @@ class Lista extends Model
     //
     protected $fillable = [
         'nome',
-        'descricao'
+        'texto'
     ];
 }

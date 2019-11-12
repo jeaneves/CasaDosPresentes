@@ -119,7 +119,7 @@ class ListaController extends Controller
     }
 
     function listarprodu(){
-        $produtos = DB::select("select * from users");
+        $produtos = DB::select("select * from produtos");
         return $produtos;
 
     }

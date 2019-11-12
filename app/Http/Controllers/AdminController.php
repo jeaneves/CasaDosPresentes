@@ -154,7 +154,7 @@ class AdminController extends Controller
 
     function quantidade_produ(){
         
-        $qtde_produ = DB::select("select count(1) as qtdeprodu from produtos where ativo = 1");
+        $qtde_produ = DB::select("select count(1) as qtdeprodu from produtos where status = 'A'");
         $qtde_produ = $qtde_produ[0];
         return $qtde_produ;
     }

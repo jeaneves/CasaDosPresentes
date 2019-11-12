@@ -83,7 +83,7 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li class="active-menu">
-								<a href="index.html">Home</a>
+								<a href="{{ url('/') }}">Home</a>
 								<!-- <ul class="sub-menu">
 									<li><a href="index.html">Homepage 1</a></li>
 									<li><a href="home-02.html">Homepage 2</a></li>
@@ -92,7 +92,7 @@
 							</li>
 
 							<li>
-								<a href="product.html"  >Listas</a>
+								<a href="#"  >Listas</a>
 							</li>
 
 							<li class="label1" data-label1="Quente">
@@ -100,15 +100,15 @@
 							</li>
 
 							<li>
-								<a href="blog.html">Blog</a>
+								<a href="#">Blog</a>
 							</li>
 
 							<li>
-								<a href="about.html">Sobre</a>
+								<a href="#">Sobre</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contato</a>
+								<a href="#">Contato</a>
 							</li>
 						</ul>
 					</div>	

@@ -11,7 +11,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    /*public function __construct()
     {
         $this->middleware('auth');
     }
@@ -23,6 +23,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $produtos = $this->listarprodu();
+
+        return view('welcome',['produtos' => $produtos]);
+        
+        
     }
+/*-------------------------------------------------*/
+    function listarprodu(){
+        $produtos = DB::select("select * from users");
+        return $produtos;
+    }
+
 }
