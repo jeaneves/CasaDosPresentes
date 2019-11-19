@@ -125,7 +125,7 @@ class ListaController extends Controller
     }
 
     function listarcategorias(){
-        $categorias = DB::select("select * from categorias where apareceslide = 1");
+        $categorias = DB::select("select * from categorias ");
         return $categorias;
     }
 }

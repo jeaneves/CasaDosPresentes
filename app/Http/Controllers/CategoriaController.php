@@ -60,15 +60,22 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'nome'=>'required',
-            'imagem'=>'required'         
+        // $request->validate([
+        //     'nome'=>'required',
+        //     'imagem'=>'required'         
 
-        ]);
+        // ]);
      
+        // $data = $_FILES['imagem_slide'];
+        //var_dump($data);
+        //exit;
 
+    
 
-        file_put_contents( $_FILES['imagem_slide']['name'], $_FILES['imagem_slide']);
+      //  file_put_contents( $_FILES['imagem_slide']['name'], $_FILES['imagem_slide']);
+       // $imageName = 'imagens/' . $_FILES['imagem_slide']['name']; 
+        
+      //  file_put_contents($imageName, $data);
         
         
 
@@ -76,7 +83,7 @@ class CategoriaController extends Controller
             'nome' => $request->get('nome'),
             'descricao' => $request->get('descricao'),
             'imagem' => $request->get('imagem'),
-            'imagem_slide' => $_FILES['imagem_slide']['name'],
+            // 'imagem_slide' => $_FILES['imagem_slide']['name'],
             'apareceslide' => $request->get('apareceslide')
         ]);
   
@@ -87,18 +94,21 @@ class CategoriaController extends Controller
       //  file_put_contents( $imageName, $request->file('imagem_slide'));
 //
    //   FileAs('', $file, $filenewname);
-      Storage::disk('local')->putFileAs('CategoriaImages', $request->file('imagem_slide'),'foto.jpg');
+
+ //  Storage::disk('public/images')->put( $_FILES['imagem_slide']['name'],  $request->file('imagem_slide'));
+
+
+//    $imageName = 'imagens/' .  $_FILES['imagem_slide']['name']; 
+        
+//    file_put_contents($imageName, $_FILES['imagem_slide']);
+
+
+  //    Storage::disk('local')->putFileAs('CategoriaImages', $request->file('imagem_slide'),'foto.jpg');
       //Storage::disk('local')->put('CategoriaImages',  $request->file('imagem_slide'));
 
      //   $imageName = asset($imageName);               
 
-
-        
-
-
-    
-
-        $categoria->apareceslide = $request->input('apareceslide') ? true : false;
+        // $categoria->apareceslide = $request->input('apareceslide') ? true : false;
 
         $categoria->save();
         return redirect('admin/categoria')->with('success', 'Categoria Salva!');

@@ -48,9 +48,10 @@ class AdminController extends Controller
 
         if (Auth::user()->isAdmin == 1){
             return view('admin.adminindex',['usuarios' => $qtde, 'qtde_produtos' => $qtde_produ]);    
+        }else{
+            return  redirect()->to(url('/'));
         }
 
-        return view('url(/listacasamento)');
     }
 
     /**

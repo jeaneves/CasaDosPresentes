@@ -9,7 +9,7 @@ class Categorias extends Model
     //
     protected $fillable = [
         
-        'nome', 'descricao', 'imagem','imagem_slide', 'apareceslide'
+        'nome', 'descricao'
         
     ];
 }
