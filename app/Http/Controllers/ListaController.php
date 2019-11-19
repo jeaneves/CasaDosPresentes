@@ -57,8 +57,7 @@ class ListaController extends Controller
 
      $produto = Produto::find($request->id);  
       
-        return view('lista/modal', ['produto' => $produto            
-        ]);
+        return view('lista.modal', ['produto' => $produto]);
     }
 
     /**
