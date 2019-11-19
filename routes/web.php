@@ -23,6 +23,8 @@ Route::resource('welcome','WelcomeController');
 
 Auth::routes();
 
+Route::get('/produto/detalhe/{id}    ', ['as' => 'produto.detalhe', 'uses' => 'ListaController@viewModal']);
+
 
 
 Route::resource('listas','ListaController');

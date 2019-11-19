@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Lista;
 use App\Categorias;
+use App\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
  
@@ -40,6 +41,24 @@ class ListaController extends Controller
 
 
         return view('lista.listaindex',['registros' => $qtde, 'produtos' => $produtos, 'categorias' => $categorias]);
+    }
+    
+    public function viewModal(Request $request)
+    {
+        $veiculos = null;
+              
+       // $frota = Frota::find($request->id);            
+
+     //   if ($frota != null)
+     //   {
+   
+     //       $veiculos = $this->loadVeiculos($frota->id);
+     //   }
+
+     $produto = Produto::find($request->id);  
+      
+        return view('lista/modal', ['produto' => $produto            
+        ]);
     }
 
     /**
@@ -119,7 +138,7 @@ class ListaController extends Controller
     }
 
     function listarprodu(){
-        $produtos = DB::select("select * from produtos");
+        $produtos = DB::select("select * from produtos where status = 'A'");
         return $produtos;
 
     }
