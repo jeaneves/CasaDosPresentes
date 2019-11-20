@@ -36,6 +36,9 @@
 	    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 
 		<script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+			
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 <!--===============================================================================================-->
         
         <title>lista casamento</title>
@@ -77,8 +80,8 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="{{ url('/') }}" class="logo">
-						<img src="images/icons/logo-01.png" alt="IMG-LOGO">
+					<a href="{{ url('/listas') }}" class="logo">
+						<img src="{{asset('images/icons/logo-01.png')}}" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -118,7 +121,7 @@
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
-							<a href="{{ url('/') }}"><i class="zmdi zmdi-plus"></i></a>
+							<a href="{{url('listas/create')}}"><i class="zmdi zmdi-plus"></i></a>
 						</div>
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="1 ">
@@ -156,22 +159,30 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="{{ url('/listas') }}"><img src="{{asset('images/icons/logo-01.png')}}" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
 			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+					<a href="{{url('listas/create')}}"><i class="zmdi zmdi-plus"></i></a>
 				</div>
 
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
 
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
-					<i class="zmdi zmdi-favorite-outline"></i>
-				</a>
+				<!-- sair -->
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti " ><!--js-show-cart -->
+					<!-- <a href=""> <i class="zmdi zmdi-close-circle-o"></i></a> -->
+					<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="Sair">
+					 	<i class="zmdi zmdi-close-circle-o"></i> 
+						<!-- {{ Auth::user()->name }} -->
+						<form id="logout-form" action="{{ route('logout') }}" method="POST"style="display: none;">
+							{{ csrf_field() }}
+						</form> 
+					</a>
+				</div>
 			</div>
 
 			<!-- Button show menu -->
@@ -185,66 +196,35 @@
 
 		<!-- Menu Mobile -->
 		<div class="menu-mobile">
-			<ul class="topbar-mobile">
-				<li>
-					<div class="left-top-bar">
-						Free shipping for standard order over $100
-					</div>
-				</li>
-
-				<li>
-					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							Help & FAQs
-						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							My Account
-						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							EN
-						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							USD
-						</a>
-					</div>
-				</li>
-			</ul>
-
 			<ul class="main-menu-m">
-				<li>
-					<a href="index.html">Home</a>
-					<ul class="sub-menu-m">
-						<li><a href="index.html">Homepage 1</a></li>
-						<li><a href="home-02.html">Homepage 2</a></li>
-						<li><a href="home-03.html">Homepage 3</a></li>
-					</ul>
-					<span class="arrow-main-menu-m">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
-					</span>
-				</li>
+			<li class="active-menu">
+								<a href="{{ url('/') }}">Home</a>
+								<!-- <ul class="sub-menu">
+									<li><a href="index.html">Homepage 1</a></li>
+									<li><a href="home-02.html">Homepage 2</a></li>
+									<li><a href="home-03.html">Homepage 3</a></li>
+								</ul> -->
+							</li>
 
-				<li>
-					<a href="product.html">Shop</a>
-				</li>
+							<li>
+								<a href="#"  >Listas</a>
+							</li>
 
-				<li>
-					<a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
-				</li>
+							<li class="label1" data-label1="Quente">
+								<a href="shoping-cart.html">Novidades</a>
+							</li>
 
-				<li>
-					<a href="blog.html">Blog</a>
-				</li>
+							<li>
+								<a href="#">Blog</a>
+							</li>
 
-				<li>
-					<a href="about.html">About</a>
-				</li>
+							<li>
+								<a href="#">Sobre</a>
+							</li>
 
-				<li>
-					<a href="contact.html">Contact</a>
-				</li>
+							<li>
+								<a href="#">Contato</a>
+							</li>
 			</ul>
 		</div>
 
@@ -272,7 +252,7 @@
 		<div class="header-cart flex-col-l p-l-65 p-r-25">
 			<div class="header-cart-title flex-w flex-sb-m p-b-8">
 				<span class="mtext-103 cl2">
-					Seu Carrinho
+					Sua Lista temporária
 				</span>
 
 				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
@@ -338,11 +318,11 @@
 
 					<div class="header-cart-buttons flex-w w-full">
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
+							Ver lista temporária
 						</a>
 
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
+							Confirmar
 						</a>
 					</div>
 				</div>
@@ -459,24 +439,24 @@
 			<div class="p-t-40">
 				<div class="flex-c-m flex-w p-b-18">
 					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
+						<img src="{{asset('images/icons/icon-pay-01.png')}}" alt="ICON-PAY">
 					</a>
 
 					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
+						<img src="{{asset('images/icons/icon-pay-02.png')}}" alt="ICON-PAY">
 					</a>
 
 					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
+						<img src="{{asset('images/icons/icon-pay-03.png')}}" alt="ICON-PAY">
 					</a>
 
 					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
+						<img src="{{asset('images/icons/icon-pay-04.png')}}" alt="ICON-PAY">
 					</a>
 
 					<a href="http://www.clearsale.com.br" class="m-all-1">
 						<br>
-						<p><img src="images/icons/clearsale.png" alt="ICON-PAY">
+						<p><img src="{{asset('images/icons/clearsale.png')}}" alt="ICON-PAY">
 					</a>
 				</div>
 
@@ -522,6 +502,7 @@
 <!--===============================================================================================-->
 	<script src="{{ asset('vendor/slick/slick.min.js') }}"></script>
 	<script src="{{ asset('js/slick-custom.js') }}"></script>
+
 <!--===============================================================================================-->
 	<script src="{{ asset('vendor/parallax100/parallax100.js') }}"></script>
 	<script>
@@ -576,7 +557,7 @@
 		$('.js-addcart-detail').each(function(){
 			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
 			$(this).on('click', function(){
-				swal(nameProduct, "is added to cart !", "success");
+				swal(nameProduct, "Adicionado a Lista com sucesso !", "success");
 			});
 		});
 	

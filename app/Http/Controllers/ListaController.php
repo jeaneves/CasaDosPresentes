@@ -43,22 +43,25 @@ class ListaController extends Controller
         return view('lista.listaindex',['registros' => $qtde, 'produtos' => $produtos, 'categorias' => $categorias]);
     }
     
-    public function viewModal(Request $request)
+    public function consultalista()
     {
-        $veiculos = null;
-              
-       // $frota = Frota::find($request->id);            
+        $qtde = 0;
+        $qtdeReg = $this->qtde_registro();
+        
+        if ($qtdeReg)
+        {
+            $qtde = $qtdeReg->qtde;
+        }
 
-     //   if ($frota != null)
-     //   {
-   
-     //       $veiculos = $this->loadVeiculos($frota->id);
-     //   }
+        $produtos = $this->listarprodu();
 
-     $produto = Produto::find($request->id);  
-      
-        return view('lista.modal', ['produto' => $produto]);
+        $categorias = $this->listarcategorias();
+
+        return view('lista.listaconsulta',['registros' => $qtde, 'produtos' => $produtos, 'categorias' => $categorias]);
     }
+     
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -68,6 +71,19 @@ class ListaController extends Controller
     public function create()
     {
         //
+        $qtde = 0;
+        $qtdeReg = $this->qtde_registro();
+        
+        if ($qtdeReg)
+        {
+            $qtde = $qtdeReg->qtde;
+        }
+
+        $produtos = $this->listarprodu();
+
+        $categorias = $this->listarcategorias();
+        
+        return view('lista.listacadastro',['registros' => $qtde, 'produtos' => $produtos, 'categorias' => $categorias]);
     }
 
     /**
@@ -79,7 +95,32 @@ class ListaController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nome'=>'required',
+            'dataevento'=>'required',
+            'tipo'=>'required'
+        ]);
 
+        $lista = new Lista([
+            'id_usuario'    => $request->get('auth()->user()->id'),
+            'tipo'          => $request->get('tipo'),
+            'nome'          => $request->get('nome'),
+            'texto'         => $request->get('texto'),
+            'datacadastro'  => $request->get('datacadastro'),
+            'dataevento'    => $request->get('dataevento'),
+            'uf'            => $request->get('uf'),
+            'cep'           => $request->get('cep'),
+            'numero'        => $request->get('numero'),
+            'rua'           => $request->get('rua'),
+            'bairro'        => $request->get('bairro'),
+            'cidade'        => $request->get('cidade'),
+            'foto'          => $request->get('foto'),
+            'telefone'      => $request->get('telefone'),
+            'telefone_dois' => $request->get('telefone_dois'),
+        ]);
+
+        $lista->save();
+        return redirect('listas/create')->with('success', 'Lista Salva!');
     }
 
     /**
@@ -88,9 +129,22 @@ class ListaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+        $qtde = 0;
+        $qtdeReg = $this->qtde_registro();
+        
+        if ($qtdeReg)
+        {
+            $qtde = $qtdeReg->qtde;
+        }
+
+        $produtos = $this->listarprodu();
+
+        $categorias = $this->listarcategorias();
+
+        return view('lista.listaconsulta',['registros' => $qtde, 'produtos' => $produtos, 'categorias' => $categorias]);
     }
 
     /**
@@ -127,6 +181,9 @@ class ListaController extends Controller
     {
         //
     }
+
+
+
     /*Funçoes adicionais */
     function qtde_registro()
     {

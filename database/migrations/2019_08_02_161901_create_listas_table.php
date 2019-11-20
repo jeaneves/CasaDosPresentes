@@ -15,13 +15,13 @@ class CreateListasTable extends Migration
     {
         Schema::create('listas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
-            $table->integer('id_usuario');
-            $table->integer('Tipo');
-            $table->string('nome',50);
+            $table->timestamps()->nullable();
+            $table->integer('id_usuario')->nullable();
+            $table->integer('Tipo')->nullable();
+            $table->string('nome',50)->nullable();
             $table->text('texto')->nullable();
             $table->date('datacadastro')->nullable();
-            $table->date('dataevento');
+            $table->date('dataevento')->nullable();
             $table->string('uf',2)->nullable();
             $table->string('cep',10)->nullable();
             $table->string('pais',30)->nullable();

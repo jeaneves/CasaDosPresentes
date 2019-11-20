@@ -74,6 +74,43 @@
 				    </nav>
 			    </div>
 		    </div>
+
+			<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+			</div>
+
+			
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+		</div>
+
+
+		<!-- Menu Mobile -->
+		<div class="menu-mobile">
+			<ul class="topbar-mobile">
+				<li>
+					@if (Route::has('login'))
+						<div class="top-right links">
+							@auth
+								<a href="{{ url('/listas') }}">Listas de Presentes |</a>
+								@else
+									<a href="{{ route('login') }}">Acessar |</a>
+									@if (Route::has('register'))
+										<a href="{{ route('register') }}">Criar cadastro</a>
+									@endif
+							@endauth
+					@endif
+				</li>
+			</ul>
+		</div>
 			
 	    </header>
 		<section class="section-slide">
@@ -365,7 +402,7 @@
 										</div>
 
 										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-											Add to cart
+											Adicionar na lista
 										</button>
 									</div>
 								</div>	

@@ -8,7 +8,20 @@ class Lista extends Model
 {
     //
     protected $fillable = [
-        'nome',
-        'texto'
+            'id_usuario'   
+           ,'tipo'         
+           ,'nome'         
+           ,'texto'        
+           ,'datacadastro' 
+           ,'dataevento'   
+           ,'uf'           
+           ,'cep'          
+           ,'numero'       
+           ,'rua'          
+           ,'bairro'       
+           ,'cidade'       
+           ,'foto'         
+           ,'telefone'     
+           ,'telefone_dois'
     ];
 }

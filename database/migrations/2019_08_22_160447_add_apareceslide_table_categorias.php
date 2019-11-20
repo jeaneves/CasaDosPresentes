@@ -15,7 +15,7 @@ class AddApareceslideTableCategorias extends Migration
     {
         Schema::table('categorias', function (Blueprint $table) {
             //
-            $table->boolean('apareceslide');
+            $table->boolean('apareceslide')->nullable();
         });
     }
 

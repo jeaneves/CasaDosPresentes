@@ -15,7 +15,7 @@ class AddImagemTableCategorias extends Migration
     {
         Schema::table('categorias', function (Blueprint $table) {
             //
-            $table->string('imagem');
+            $table->string('imagem')->nullable();
         });
     }
 

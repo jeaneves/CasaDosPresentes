@@ -15,7 +15,7 @@ class AddImagemSlideTableCategorias extends Migration
     {
         Schema::table('categorias', function (Blueprint $table) {
             //
-            $table->string('imagem_slide');
+            $table->string('imagem_slide')->nullable();
         });
         
     }
