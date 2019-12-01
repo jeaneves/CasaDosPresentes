@@ -43,22 +43,7 @@ class ListaController extends Controller
         return view('lista.listaindex',['registros' => $qtde, 'produtos' => $produtos, 'categorias' => $categorias]);
     }
     
-    public function consultalista()
-    {
-        $qtde = 0;
-        $qtdeReg = $this->qtde_registro();
-        
-        if ($qtdeReg)
-        {
-            $qtde = $qtdeReg->qtde;
-        }
-
-        $produtos = $this->listarprodu();
-
-        $categorias = $this->listarcategorias();
-
-        return view('lista.listaconsulta',['registros' => $qtde, 'produtos' => $produtos, 'categorias' => $categorias]);
-    }
+    
      
 
 
@@ -129,9 +114,13 @@ class ListaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
         //
+    }
+
+    public function consultalista($tipo)
+    {
         $qtde = 0;
         $qtdeReg = $this->qtde_registro();
         
@@ -140,11 +129,20 @@ class ListaController extends Controller
             $qtde = $qtdeReg->qtde;
         }
 
+        
+
         $produtos = $this->listarprodu();
 
         $categorias = $this->listarcategorias();
 
-        return view('lista.listaconsulta',['registros' => $qtde, 'produtos' => $produtos, 'categorias' => $categorias]);
+        $listas = $this->consultarlistas();
+
+
+        return view('lista.listaconsulta',[ 'registros'  => $qtde
+                                          , 'produtos'   => $produtos
+                                          , 'categorias' => $categorias
+                                          , 'listas'     => $listas]);   
+    
     }
 
     /**
@@ -203,5 +201,11 @@ class ListaController extends Controller
         $categorias = DB::select("select * from categorias ");
         return $categorias;
     }
+
+    function consultarlistas(){
+        $listas = DB::select("select * from listas where tipo = 3");
+        return $listas;
+    }
+
 }
 

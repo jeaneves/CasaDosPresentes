@@ -19,12 +19,12 @@
 
 Route::redirect('/','welcome');
 
-Route::resource('welcome','WelcomeController');
+Route::GET('welcome','WelcomeController@index');
 
 Auth::routes();
 
-Route::resource('listas','ListaController');    
-
+Route::get('listas','ListaController@index');    
+Route::get('listas/consultalista/{$tipo}','ListaController@consultalista' )->name('lista.consultalista');
 
 // Route::resource('listas','ListaController');
 
