@@ -33,6 +33,11 @@ class WelcomeController extends Controller
         //
     }
 
+    public function detprodu($id)
+    {
+        return view('modalwelcome',[5]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

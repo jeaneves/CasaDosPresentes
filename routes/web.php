@@ -16,33 +16,30 @@
 //     return view('welcome','WelcomeController@index');
 // });
 
+Auth::routes();
 
 Route::redirect('/','welcome');
-
 Route::GET('welcome','WelcomeController@index');
+Route::GET('welcome/produto/{$id}','WelcomeController@detprodu')->name('welcome.modal');
 
-Auth::routes();
 
 Route::get('listas','ListaController@index');    
 Route::get('listas/consultalista/{$tipo}','ListaController@consultalista' )->name('lista.consultalista');
-
 // Route::resource('listas','ListaController');
 
 Route::group(['prefix' => 'admin'], function(){
     Route::get('','AdminController@index');
-    
-    // Route::GET('categoria','CategoriaController@index');
-    // Route::get('/categoria/cadastro','CategoriaController@create');
-   // Route::get('/categoria/editar/{$id}', 'CategoriaController@edit');
     Route::resource('categoria','CategoriaController');
-    //Route::post('categoria/create', 'CategoriaController@store');
-    //Route::POST('categoria/edit','CategoriaController@update');
-    //Route::post('categoria/save','CategoriaController@save');    
-
-
-    Route::get('listas','AdminController@listas');
-    Route::get('produtos','AdminController@produtos');
-    Route::get('usuarios','AdminController@usuarios');
+   //Route::GET('categoria','CategoriaController@index');
+   //Route::get('/categoria/cadastro','CategoriaController@create');
+   //Route::get('/categoria/editar/{$id}', 'CategoriaController@edit');
+   //Route::post('categoria/create', 'CategoriaController@store');
+   //Route::POST('categoria/edit','CategoriaController@update');
+   //Route::post('categoria/save','CategoriaController@save');    
+   
+   Route::get('listas','AdminController@listas');
+   Route::get('produtos','AdminController@produtos');
+   Route::get('usuarios','AdminController@usuarios');
 
 });
 //Route::resource('admin/categoria','AdminController@categoria');
