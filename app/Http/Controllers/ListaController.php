@@ -121,6 +121,24 @@ class ListaController extends Controller
 
     public function consultalista($tipo)
     {
+
+        $categorias = $this->listarcategorias();
+
+        $listas = $this->consultarlistas($tipo);
+
+        $categoria = $this->nomeCategoria($tipo);
+
+
+        return view('lista.listaconsulta',['categorias' => $categorias, 'listas' =>$listas, 'categoria' => $categoria]);   
+    
+    }
+
+    public function detprodu($id){
+        $produto = $this->detalheprodu($id);
+
+        $produrelacionado = $this->produrelacionado($produto->cod_marca, $produto->cod_prod);
+
+        //
         $qtde = 0;
         $qtdeReg = $this->qtde_registro();
         
@@ -129,20 +147,11 @@ class ListaController extends Controller
             $qtde = $qtdeReg->qtde;
         }
 
-        
-
         $produtos = $this->listarprodu();
 
         $categorias = $this->listarcategorias();
 
-        $listas = $this->consultarlistas();
-
-
-        return view('lista.listaconsulta',[ 'registros'  => $qtde
-                                          , 'produtos'   => $produtos
-                                          , 'categorias' => $categorias
-                                          , 'listas'     => $listas]);   
-    
+        return view('lista.listaproduto',['produto' => $produto, 'produrelacionado' => $produrelacionado, 'produtos' => $produtos, 'categorias' => $categorias]);
     }
 
     /**
@@ -202,10 +211,26 @@ class ListaController extends Controller
         return $categorias;
     }
 
-    function consultarlistas(){
-        $listas = DB::select("select * from listas where tipo = 3");
+    function consultarlistas($tipolista){
+        $listas = DB::select("select listas.nome as nomelista ,listas.foto ,cat.nome as nomecategoria from listas left join categorias cat on cat.id = listas.tipo where listas.tipo =".$tipolista);
         return $listas;
     }
 
+    function nomeCategoria($id){
+        $Categoria = Categorias::find($id);
+        return $Categoria;
+    }
+
+    function detalheprodu($id){
+        $produto = Produto::find($id);
+        return $produto;
+    }
+
+
+    function produrelacionado($codMarca, $codProd){
+        $marca = DB::select ("select produtos.nome_prod, produtos.preco_vend ,produtos.id from produtos produtos left join marcas marcas on (produtos.cod_marca = marcas.codigo) where marcas.codigo = ".$codMarca." and produtos.cod_prod <>".$codProd);
+        return $marca;
+
+    }
 }
 

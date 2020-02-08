@@ -121,7 +121,7 @@
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
-							<a href="{{url('listas/create')}}"><i class="zmdi zmdi-plus"></i></a>
+							<a href="{{route('listas.create')}}"><i class="zmdi zmdi-plus"></i></a>
 						</div>
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="1 ">
@@ -159,7 +159,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="{{ url('/listas') }}"><img src="{{asset('images/icons/logo-01.png')}}" alt="IMG-LOGO"></a>
+				<a href="{{ route('listas.index') }}"><img src="{{asset('images/icons/logo-01.png')}}" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -264,7 +264,7 @@
 				<ul class="header-cart-wrapitem w-full">
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
-							<img src="images/item-cart-01.jpg" alt="IMG">
+							<img src="{{asset('images/item-cart-01.jpg')}}" alt="IMG">
 						</div>
 
 						<div class="header-cart-item-txt p-t-8">
@@ -280,7 +280,7 @@
 
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
-							<img src="images/item-cart-02.jpg" alt="IMG">
+							<img src="{{asset('images/item-cart-02.jpg')}}" alt="IMG">
 						</div>
 
 						<div class="header-cart-item-txt p-t-8">
@@ -296,7 +296,7 @@
 
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
-							<img src="images/item-cart-03.jpg" alt="IMG">
+							<img src="{{asset('images/item-cart-03.jpg')}}" alt="IMG">
 						</div>
 
 						<div class="header-cart-item-txt p-t-8">

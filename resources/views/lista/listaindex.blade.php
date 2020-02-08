@@ -48,7 +48,7 @@
               				<div class="block1 wrap-pic-w">
 						    	<img src="{{$cat->imagem}}" alt="IMG-BANNER">
 								
-								  <a href="{{route('lista.consultalista',$cat->id) }}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-01 respon3">
+								  <a href="{{route('consultalista',$cat->id) }}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-01 respon3">
 								     
 							    	<div class="block1-txt-child1 flex-col-l">
 								    	<span class="block1-name ltext-102 trans-04 p-b-8">
@@ -120,9 +120,9 @@
 								<!-- Block2 -->
 								<div class="block2">
 									<div class="block2-pic hov-img0">
-										<img src="images/product-02.jpg" alt="IMG-PRODUCT">
+										<img src="{{asset('images/product-02.jpg')}}" alt="IMG-PRODUCT">
 
-										<a href="produtos/detalhe/{{$P->id}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-05 js-show-modal1">
+										<a href="{{ route('listas.produto',$P->id) }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-05 ">
 											Ver Produto
 										</a>
 											
@@ -212,7 +212,7 @@
 								Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
 							</p>
 							
-							<!--  -->
+							
 							<div class="p-t-33">
 								<div class="flex-w flex-r-m p-b-10">
 									<div class="size-203 flex-c-m respon6">
@@ -273,7 +273,7 @@
 								</div>	
 							</div>
 
-							<!--  -->
+							
 							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
 								<div class="flex-m bor9 p-r-10 m-r-11">
 									<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
